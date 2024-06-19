@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 using NLog;
 using Pongs;
 
@@ -23,12 +14,12 @@ namespace PongsSBK
     {
         #region Private variables
 
-        private PongsGameSBK mGuiReference;
+        private readonly PongsGameSBK mGuiReference;
 
-        HashSet<Key> AllowedKeys = new HashSet<Key>() { Key.Up, Key.Down, Key.Left, Key.Right, Key.W, Key.A, Key.S, Key.D };
-        HashSet<Key> KeysPressed = new HashSet<Key>();
+        readonly HashSet<Key> AllowedKeys = new HashSet<Key>() { Key.Up, Key.Down, Key.Left, Key.Right, Key.W, Key.A, Key.S, Key.D };
+        readonly HashSet<Key> KeysPressed = new HashSet<Key>();
 
-        private Logger log = LogManager.GetLogger("");
+        private readonly Logger log = LogManager.GetLogger("");
 
         #endregion
 
@@ -270,7 +261,6 @@ namespace PongsSBK
             }
             log.Info("PRunner End");
         }
-
-            #endregion
+        #endregion
     }
 }

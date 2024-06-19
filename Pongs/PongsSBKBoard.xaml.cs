@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#nullable disable
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,24 +12,24 @@ using PongsSBK;
 
 namespace Pongs
 {
-/// <summary>
-/// This is pongs game that I developed during my spring break on April 2024
-/// </summary>
+    /// <summary>
+    /// This is pongs game that I developed during my spring break on April 2024
+    /// </summary>
     public partial class PongsGameSBK : Window
     {
         #region Private variables
 
         private Line Boundary;
-        private SBKPongEngine sbkGameEngine; 
-        private Logger log = LogManager.GetLogger("");
+        private readonly SBKPongEngine sbkGameEngine; 
+        private readonly Logger log = LogManager.GetLogger("");
         private Settings settings;
-        private SliderInfo sliderInfo;
-        SolidColorBrush PaddleColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-        SolidColorBrush BallColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-        SolidColorBrush WallColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-        SolidColorBrush BackgroundColor = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+        private readonly SliderInfo sliderInfo;
+        SolidColorBrush PaddleColor = new(Color.FromArgb(255, 255, 255, 255));
+        SolidColorBrush BallColor = new(Color.FromArgb(255, 255, 255, 255));
+        SolidColorBrush WallColor = new(Color.FromArgb(255, 255, 255, 255));
+        SolidColorBrush BackgroundColor = new(Color.FromArgb(255, 0, 0, 0));
 
-        System.Windows.RoutedEventArgs a;
+        readonly RoutedEventArgs a = new();
 
         #endregion
 
@@ -261,7 +259,7 @@ namespace Pongs
             sbkGameEngine.GamePlayable = false;
             log.Info("Help_Click End");
         }
-        private void PRunner(object? obj)
+        private void PRunner(object obj)
         {
             log.Info("PRunner Start");
             while (sbkGameEngine.Start)
@@ -277,7 +275,7 @@ namespace Pongs
             }
             log.Info("PRunner End");
         }
-        private void Runner(object? obj)
+        private void Runner(object obj)
         {
             log.Info("Runner Start");
             while (sbkGameEngine.Start)
@@ -300,7 +298,7 @@ namespace Pongs
                     Dispatcher.Invoke(() =>
                     DrawPaddle(paddle2, sbkGameEngine.x2, sbkGameEngine.y2)
                     );
-                    System.Threading.Thread.SpinWait(1000000);
+                    Thread.SpinWait(1000000);
                 }
                 if (sbkGameEngine.CanBallMove == false)
                 {
@@ -373,6 +371,5 @@ namespace Pongs
             log.Info("ReDrawUnmoving End");
         }
         #endregion
-
     }
 }

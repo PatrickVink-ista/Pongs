@@ -12,7 +12,7 @@
             <ColumnDefinition Width="233*"/>
             <ColumnDefinition Width="575*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="Title" TextWrapping="Wrap" Text="Settings" Margin="12,1,0,0" FontSize="36" Foreground="White" Grid.ColumnSpan="2" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="799"/>
+        <TextBlock x:Name="WindowTitle" TextWrapping="Wrap" Text="Settings" Margin="12,1,0,0" FontSize="36" Foreground="White" Grid.ColumnSpan="2" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="799"/>
         <Slider x:Name="BallSpeedSlider" Margin="136,72,0,0" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding BallSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged" HorizontalAlignment="Left" Width="226" Height="123" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Slider x:Name="BallSizeSlider" Margin="334,72,0,0" Maximum="50" Minimum="1" IsSnapToTickEnabled="True" Value="{Binding BallSize, Mode=TwoWay}" ValueChanged="OnValueChanged" HorizontalAlignment="Left" Width="226" Height="123" VerticalAlignment="Top" Grid.Column="1"/>
         <Slider x:Name="PaddleSpeedSlider" Margin="136,153,0,0" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding PaddleSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged" HorizontalAlignment="Left" Width="226" Height="123" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
